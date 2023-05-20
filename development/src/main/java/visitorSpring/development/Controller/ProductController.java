@@ -53,23 +53,23 @@ public class ProductController {
     }
 
 
-//    @PostMapping("/updatevisitor")
-//    public ResponseEntity<Visitor> updateVisitor(@PathVariable int id){
-//        Optional<TotalVisits> existingVisitor = this.totalVisitRepo.findById(id);
-//        if(existingVisitor.isPresent()){
-//            TotalVisits totalVisits = existingVisitor.get();
-//            totalVisits.setVisitNo(totalVisits.getVisitNo()+1);
-//            totalVisits.setDate(Date.from(Instant.now()));
-//            totalVisits.setNotes("Revisiting");
-//            this.totalVisitRepo.save(totalVisits);
-//        }
-//        else{
-//            Visitor newVisitor = new Visitor();
-//            newVisitor.setId();
-//            this.totalVisitRepo.save(totalVisits);
-//        }
-//        return ResponseEntity.created(null).build();
-//    }
+    @PostMapping("/updatevisitor")
+    public ResponseEntity<Visitor> updateVisitor(@PathVariable int id){
+        Optional<TotalVisits> existingVisitor = this.totalVisitRepo.findById(id);
+        if(existingVisitor.isPresent()){
+            TotalVisits totalVisits = existingVisitor.get();
+            totalVisits.setVisitNo(totalVisits.getVisitNo()+1);
+            totalVisits.setDate(Date.from(Instant.now()));
+            totalVisits.setNotes("Revisiting");
+            this.totalVisitRepo.save(totalVisits);
+        }
+        else{
+            Visitor newVisitor = new Visitor();
+            newVisitor.setId();
+            this.totalVisitRepo.save(totalVisits);
+        }
+        return ResponseEntity.created(null).build();
+    }
 
 
     @DeleteMapping("/deletevisitor")
