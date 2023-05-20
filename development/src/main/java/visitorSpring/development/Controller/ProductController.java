@@ -48,6 +48,7 @@ public class ProductController {
 
     @PostMapping("/newvisitor")
     public ResponseEntity<Visitor> createVisitor(@RequestBody Visitor visitor){
+
          this.visitorJpaRepo.save(visitor);
          return ResponseEntity.created(null).build();
     }
@@ -64,8 +65,7 @@ public class ProductController {
             this.totalVisitRepo.save(totalVisits);
         }
         else{
-            Visitor newVisitor = new Visitor();
-            newVisitor.setId();
+            this.visitorJpaRepo.save(visitor);
             this.totalVisitRepo.save(totalVisits);
         }
         return ResponseEntity.created(null).build();
